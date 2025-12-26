@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Cache>
+  <Folder Path="E:\Halo\" DelayLoad="False">
+    <Item Action="E:\Halo\Halo2 lite\default.xbe" Region="7" ID="4d530064">Halo 2 (Lite)</Item>
+    <Item Action="E:\Halo\Halo1 Perf b21\default.xbe" Region="7" ID="4d530064">Halo 1 Performance (b2.1)</Item>
+  </Folder>
+  <Folder Path="F:\Halo\" DelayLoad="False">
+    <Item TStamp="c15b0500" Action="F:\Halo\Halo1 CE\default.xbe" Region="1" ID="4d530004">Halo: Combat Evolved</Item>
+    <Item TStamp="b6ef3a00" Action="F:\Halo\Halo1 NHE\default.xbe" Region="1" ID="4d530004" AltIcon="F:\Halo\Halo1 NHE\icon.jpg">Halo 1: NHE</Item>
+    <Item TStamp="750fc500" Action="F:\Halo\Halo1 ProEd2 NSb\default.xbe" Region="1" ID="4d530004" AltIcon="F:\Halo\Halo1 ProEd2 NSb\icon.jpg">Halo 1: Pro 2.0</Item>
+    <Item TStamp="95d91a00" Action="F:\Halo\Halo2\default.xbe" Region="7" ID="4d530064">Halo 2</Item>
+    <Item TStamp="249b6600" Action="F:\Halo\Halo2 Pre-Re Pack\default.xbe" Region="7" ID="434c4458">Halo 2: Pre Release Pack</Item>
+    <Item TStamp="9670b100" Action="F:\Halo\Halo2 R1E\default.xbe" Region="7" ID="4d530064" AltIcon="F:\Games\Halo2 R1E\icon.png">Halo 2: Real Ones Edition</Item>
+  </Folder>
+  <Folder Path="E:\Apps\" DelayLoad="False">
+    <Item TStamp="d490ee00" Action="E:\Apps\DVD2Xbox\default.xbe" Region="0" ID="0facfac0">DVD2Xbox</Item>
+    <Item TStamp="bde9c00" Action="E:\Apps\XBMC\default.xbe" Region="0" ID="0face008">XBMC</Item>
+    <Item TStamp="6b865d00" Action="E:\Apps\xbox-oc\default.xbe" Region="0" ID="ffff0002">Xbox Overclock</Item>
+  </Folder>
+  <Folder Path="F:\Apps\" DelayLoad="False">
+    <Item TStamp="92925e00" Action="F:\Apps\Xbox Live Arcade\default.xbe" Region="7" ID="4d5300c8">Xbox Live Arcade</Item>
+    <Item TStamp="6b865d00" Action="F:\Apps\Controller Test\default.xbe" Region="7" ID="5842000c">TestLaunch</Item>
+  </Folder>
+</Cache>

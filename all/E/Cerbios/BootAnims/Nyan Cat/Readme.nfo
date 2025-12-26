@@ -1,0 +1,50 @@
+                                                                                                  
+                                                                                                  
+TTTTTTTTTTTTTTTTTTTTTTT             HHHHHHHHH     HHHHHHHHH                  DDDDDDDDDDDDD        
+T:::::::::::::::::::::T             H:::::::H     H:::::::H                  D::::::::::::DDD     
+T:::::::::::::::::::::T             H:::::::H     H:::::::H                  D:::::::::::::::DD   
+T:::::TT:::::::TT:::::T             HH::::::H     H::::::HH                  DDD:::::DDDDD:::::D  
+TTTTTT  T:::::T  TTTTTT               H:::::H     H:::::H                      D:::::D    D:::::D 
+        T:::::T                       H:::::H     H:::::H                      D:::::D     D:::::D
+        T:::::T                       H::::::HHHHH::::::H                      D:::::D     D:::::D
+        T:::::T                       H:::::::::::::::::H                      D:::::D     D:::::D
+        T:::::T                       H:::::::::::::::::H                      D:::::D     D:::::D
+        T:::::T                       H::::::HHHHH::::::H                      D:::::D     D:::::D
+        T:::::T                       H:::::H     H:::::H                      D:::::D     D:::::D
+        T:::::T                       H:::::H     H:::::H                      D:::::D    D:::::D 
+      TT:::::::TT                   HH::::::H     H::::::HH                  DDD:::::DDDDD:::::D  
+      T:::::::::T       ......      H:::::::H     H:::::::H      ......      D:::::::::::::::DD   
+      T:::::::::T       .::::.      H:::::::H     H:::::::H      .::::.      D::::::::::::DDD     
+      TTTTTTTTTTT       ......      HHHHHHHHH     HHHHHHHHH      ......      DDDDDDDDDDDDD        
+
+
+
+-----------
+DESCRIPTION
+-----------
+
+Custom Boot animation for Cerbios V2.X based on the greatest internet meme NYAN CAT.
+
+-----------------------------------------------------
+                  Instructions
+-----------------------------------------------------
+
+Create a new folder called (Nyan Cat) in the root of your C:\Bootanims\  
+Copy default.xbe into Nyan Cat Folder
+Update Cerbios.ini with new path name
+
+BootAnimPath = \Device\Harddisk0\Partition2\BootAnims\Nyan Cat\default.xbe
+
+
+-----------------------------------------------------
+
+
+------
+THANKS
+------
+
+Team Cerbios for the amazing work they have done so far with this amazing bios & breathing some new life into the scene.
+Massive shout out to all groups that are still working with the OG XBOX & making some sweet stuff after all these years.
+
+Source Code released & included for other teams to improve on & hopefully assist with creating new boot animations. We dont obfuscate or hide our code behind patch loaders or IPS.
+

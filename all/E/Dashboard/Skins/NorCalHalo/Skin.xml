@@ -1,0 +1,109 @@
+<Skin Name="HaloShapesMotion">
+	<Information>
+		<Author>Kthulu x cOrPsE</Author>
+		<Copyright>9999</Copyright>
+		<Version>this one</Version>
+	</Information>
+	
+ 	<LoadingScreen ShowInfo="True">
+  		<BackGround>loading.png</BackGround>
+ 	</LoadingScreen>
+
+	<Main Globe="False" Orb="False" Fog="False">
+		<Image Top="81" Left="0" Width="640" Height="480" Opacity="100" source="GameIcon" />
+ 		<Image Source="GamePreview" />
+		<Image Left="0" Top="0" Align="Left" Width="640" Height="480" Opacity="100">bg.png</Image>
+		<BackGround EnableAudio="True">BG.wmv</BackGround>
+		<Menu Smooth="True" Align="Left" ShowIcon="True" ShowArrows="False">
+			<Position Top="110" Left="18" Width="374" Height="280" Fixed="False" FixAt="1" MaxItem="7"></Position>
+			<Preview EnableAudio="False" Left="404" Top="158" Width="212" Height="156" />
+			<Font>Denmark_16.xpr</Font>
+		</Menu>
+		<InfoFont>Denmark_16.xpr</InfoFont>
+		<!--<Text Left="610" Top="50" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="v.$AppVersion$" />-->
+		<!--<Text Left="610" Top="65" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="Xbox $Version$" />-->
+		<Text Left="410" Top="128" Align="Left" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="Nick:" />
+		<Text Left="610" Top="128" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="$NickName$" />
+
+		<Text Left="410" Top="393" Width="200" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="$SoundTrack$" />
+		<Text Left="410" Top="413" Width="200" Scroll="2" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="$SongName$" />
+		<Text Left="610" Top="433" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="SongTime" />
+
+		<Text Left="395" Top="353" Width="230" Align="Left" Scroll="2" Color="0xFFFFFFFF" ScaleX="75" ScaleY="75" Source="$Newsfeed$" />
+
+		<Text Left="30" Top="393" Align="Left" Width="220" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="D: $DVDTitle$" />
+		<Text Left="30" Top="413" Align="Left" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="IP" />
+		<Text Left="410" Top="328" Align="Left" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="$Time$" />
+		<Text Left="30" Top="433" Align="Left" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="MBTemp" />
+
+		<Text Left="380" Top="393" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="E: $E_FreeMB$" />
+		<Text Left="380" Top="413" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="F: $F_FreeMB$" />
+		<Text Left="610" Top="328" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="$Date$" />
+		<Text Left="380" Top="433" Align="Right" Color="0xFFFFFFFF" ScaleX="60" ScaleY="60" Source="CPUTemp" />
+		<Image Top="162" Left="436" Width="150" Height="150" Source="GameIcon" />
+		<Image Source="GamePreview" />
+	</Main>
+
+	<FileManager SafeBorder="True">
+		<Background>filemanager.png</Background>
+	</FileManager>
+
+	<ColorScheme>
+			<!-- Music menu playlist screen -->
+			<MMActiveForeColor>0xffaee239</MMActiveForeColor>
+			<MMForeColor>0xffafb2ce</MMForeColor>
+			<MMDarkBackColor>0xff3a3a46</MMDarkBackColor>
+			<MMLightBackColor>0xff626473</MMLightBackColor>
+			<MM_BORDERCOLOR>0xff4c4d58</MM_BORDERCOLOR>
+			<!-- Visualisation colour -->
+			<MMDarkBarColor>0xffaee239</MMDarkBarColor>
+			<!-- These seem to do nothing -->
+			<MMBarBackColor>0xff86d7de</MMBarBackColor>
+			<MMOffForeColor>0xff86d7de</MMOffForeColor>
+			<MMLightBarColor>0xff86d7de</MMLightBarColor>
+			<!-- Not sure, they seem to do nothing -->
+			<WINDOWBACKCOLOR>0xffaee239</WINDOWBACKCOLOR>
+			<WINDOWFORECOLOR>0xff000000</WINDOWFORECOLOR>
+			<!-- Background effect colours -->
+            <AMBIENT_FOGCOLOR>0x78FFFFFF</AMBIENT_FOGCOLOR>
+            <AMBIENT_SKYCOLOR>0xFF00326F</AMBIENT_SKYCOLOR>
+            <AMBIENT_CELLCOLOR>0x7800C000</AMBIENT_CELLCOLOR>
+			<!-- Please wait overlay, menu header colour eg... -->
+            <CAPTION_TEXTCOLOR>0xFFE0E0E0</CAPTION_TEXTCOLOR>
+            <CAPTION_BACKCOLOR>0x004274FF</CAPTION_BACKCOLOR>
+			<!-- Dialogs, ie, Batch process and progress bars eg... -->
+            <DIALOG_BORDERCOLOR>0xFF0080C0</DIALOG_BORDERCOLOR>
+            <DIALOG_BACKCOLOR>0xFF014E8B</DIALOG_BACKCOLOR>
+            <DIALOG_INNER_BORDERCOLOR>0xFF0080C0</DIALOG_INNER_BORDERCOLOR>
+            <DIALOG_INNER_BACKCOLOR>0xFF006FA4</DIALOG_INNER_BACKCOLOR>
+            <DIALOG_TEXTCOLOR>0xFF48C4FF</DIALOG_TEXTCOLOR>
+            <DIALOG_DISABLEDTEXT>0xFFA7A7A7</DIALOG_DISABLEDTEXT>
+			<!-- Settings menu -->
+            <OPTION_TEXTCOLOR>0xFF3EC0FF</OPTION_TEXTCOLOR>
+            <OPTION_ACTIVETEXTCOLOR>0xFFB3E7FF</OPTION_ACTIVETEXTCOLOR>
+            <OPTION_ACTIVEBACKCOLOR>0xFF014E8B</OPTION_ACTIVEBACKCOLOR>
+			<!-- Dialogs, ie, Yes/no buttons eg... -->
+            <BUTTON_BORDERCOLOR>0xFF06AEFF</BUTTON_BORDERCOLOR>
+            <BUTTON_TEXTCOLOR>0xFF06AEFF</BUTTON_TEXTCOLOR>
+            <BUTTON_BACKCOLOR>0xFF006B9F</BUTTON_BACKCOLOR>
+            <BUTTON_ACTIVETEXTCOLOR>0xFF014E8B</BUTTON_ACTIVETEXTCOLOR>
+            <BUTTON_ACTIVEBACKCOLOR>0xFF0080C0</BUTTON_ACTIVEBACKCOLOR>
+			<!-- Keyboard -->
+            <KB_KEYBG_HIGHLIGHT>0xFF0098E1</KB_KEYBG_HIGHLIGHT>
+            <KB_KEYBG_DISABLED>0x784D4D4D</KB_KEYBG_DISABLED>
+            <KB_KEY_PRESSED>0xFF3EC0FF</KB_KEY_PRESSED>
+            <KB_KEY_NORMAL>0xFF0080C0</KB_KEY_NORMAL>
+            <KB_KEY_DISABLED>0xFF004F75</KB_KEY_DISABLED>
+            <KB_KEY_ACTIVEBORDER>0xFF0095DD</KB_KEY_ACTIVEBORDER>
+            <KB_KEY_TEXTCOLOR>0xFFEAEAEA</KB_KEY_TEXTCOLOR>
+            <KB_KEY_TEXTBACKCOLOR>0xFF006595</KB_KEY_TEXTBACKCOLOR>
+            <KB_KEY_TEXTBORDERCOLOR>0x780080C0</KB_KEY_TEXTBORDERCOLOR>
+			<!-- Main menu -->
+			<MENU_TEXTCOLOR>0xFF0080C0</MENU_TEXTCOLOR>
+            <MENU_ACTIVETEXTCOLOR>0xFF5ECBFF</MENU_ACTIVETEXTCOLOR>
+            <MENU_BORDERCOLOR>0x00000000</MENU_BORDERCOLOR>
+            <MENU_BACKCOLOR>0x00000000</MENU_BACKCOLOR>
+            <MENU_ACTIVEBACKCOLOR>0x00000000</MENU_ACTIVEBACKCOLOR>
+            <MENU_ACTIVEBORDERCOLOR>0x00000000</MENU_ACTIVEBORDERCOLOR>
+	</ColorScheme>
+</Skin>

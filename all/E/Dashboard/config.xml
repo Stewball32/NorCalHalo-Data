@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UnleashX>
+  <Settings>
+    <MSDashBoard>C:\xboxdash.xbe</MSDashBoard>
+    <Password MaxTries="3"></Password>
+    <Network Enable="Yes" Type="DHCP">
+      <IP>192.168.1.250</IP>
+      <Subnet>255.255.255.0</Subnet>
+      <Gateway>192.168.1.254</Gateway>
+      <DNS1>192.168.1.254</DNS1>
+      <DNS2>192.168.1.254</DNS2>
+      <AutoDetect>Yes</AutoDetect>
+    </Network>
+    <FTP Enable="Yes">
+      <User>xbox</User>
+      <Password>xbox</Password>
+      <Port>21</Port>
+      <MaxUsers>2</MaxUsers>
+      <AllowAnon>No</AllowAnon>
+      <Greeting>Welcome to XBOX FTP Server</Greeting>
+      <Boost>Yes</Boost>
+    </FTP>
+    <Newsfeed Enable="True" Interval="30">
+      <URL>www.xbox-scene.com/xbox1data/xbox-scene.xml</URL>
+      <URL>www.xbins.org/xbins.xml</URL>
+    </Newsfeed>
+    <Preference>
+      <Games AutoLaunch="No"></Games>
+      <DVD AutoLaunch="No">E:\Apps\XBMC\default.xbe</DVD>
+      <AudioCD AutoLaunch="No">C:\xboxdash.xbe</AudioCD>
+      <Data AutoLaunch="No"></Data>
+      <SNTP Synchronize="Yes">139.143.5.30</SNTP>
+      <UseFahrenheit>No</UseFahrenheit>
+      <FanSpeed>1.00</FanSpeed>
+      <ScreenSaver Wait="60" Type="2">
+        <Text>NorCal Halo</Text>
+        <Video>E:\Dashboard\ScreenSavers\danceparty.xmv</Video>
+      </ScreenSaver>
+      <AutoTurnOff>0</AutoTurnOff>
+      <EnableDriveF>True</EnableDriveF>
+      <EnableDriveG>True</EnableDriveG>
+      <LEDColor>Default</LEDColor>
+      <Skin Path="E:\Dashboard\Skins">NorCalHalo</Skin>
+      <TempThreshold>50</TempThreshold>
+      <LiveUpdate AutoCheck="Yes"></LiveUpdate>
+      <VideoSettings Use480P="Yes" Use720P="Yes" Use1080I="No"></VideoSettings>
+      <AutoVideoMode MultiRegion="Off" UsePAL60="No">No</AutoVideoMode>
+      <AutoSetTime>Yes</AutoSetTime>
+    </Preference>
+    <Shortcut>
+    </Shortcut>
+  </Settings>
+  <Menu>
+    <List Text="Clear Cache" Sort="Off" Batch="True">
+      <Item Action="Format" Arg1="X"></Item>
+      <Item Action="Format" Arg1="Y"></Item>
+      <Item Action="Format" Arg1="Z"></Item>
+      <Item Action="delete" Arg1="E:\CACHE"></Item>
+      <Item Action="delete" Arg1="E:\CACHEGSRV"></Item>
+    </List>
+    <List Text="Play Halo" Sort="On" Auto="On">
+      <Path>E:\Halo</Path>
+      <Path>F:\Halo</Path>
+      <Path>G:\Halo</Path>
+    </List>
+    <List Text="Games" Sort="On" Auto="On">
+      <Path>E:\Games</Path>
+      <Path>F:\Games</Path>
+      <Path>G:\Games</Path>
+    </List>
+    <List Text="Game Management" Sort="Off" Auto="On">
+      <Item Action="SavesManager">Game Saves Manager</Item>
+      <Item Action="E:\Apps\DVD2Xbox\default.xbe">Copy Game Disc</Item>
+    </List>
+    <Item Action="Skins">Skins</Item>
+    <List Text="Xbox Admin" Sort="On" Auto="On">
+      <List Text="Applications" Sort="On" Auto="On">
+        <Path>C:\Apps</Path>
+        <Path>C:\Applications</Path>
+        <Path>E:\Apps</Path>
+        <Path>E:\Applications</Path>
+        <Path>F:\Apps</Path>
+        <Path>F:\Applications</Path>
+        <Path>G:\Apps</Path>
+        <Path>G:\Applications</Path>
+        <Item Action="TextEditor">Text Editor</Item>
+      </List>
+      <Item Action="LaunchDVD">Launch Disc</Item>
+      <List Text="XBMC" Sort="Off" Batch="True">
+        <Item Action="rename" Arg1="E:\Shortcuts\XBMC Shortcut\xbmc.xbe" Arg2="E:\Shortcuts\XBMC Shortcut\xbmc.tmp">XBMC or shortcut not installed. Use HeXEn to install XBMC.</Item>
+        <Item Action="rename" Arg1="E:\Shortcuts\XBMC Shortcut\xbmc.tmp" Arg2="E:\Shortcuts\XBMC Shortcut\xbmc.xbe"></Item>
+        <Item Action="E:\Shortcuts\XBMC Shortcut\xbmc.xbe">XBMC</Item>
+      </List>
+      <List Text="Dashboards" Sort="On" Auto="On">
+        <Item Action="E:\Dashboard\unleashx.xbe">UnleashX - (Default)</Item>
+        <Item Action="C:\xboxdash.xbe">MS Dashboard</Item>
+      </List>
+      <List Text="FTP Client" Sort="Off" Batch="True">
+        <Item Action="MessageBox" Arg1="FTP Client">Use the UnleashX File Explorer - Press the White button and select 'Switch to FTP Browser'. Alternatively, use DVD2Xbox or XBMC. N.B. there is a bug in the UnleashX FTP client, so if you are using UnleashX, you should push (send) files rather than pull (retrieve) them.</Item>
+      </List>
+      <List Text="System" Sort="Off" Auto="On">
+        <Item Action="Settings">Settings</Item>
+        <List Text="Network Control" Sort="Off" Auto="On">
+          <Item Action="FTPStop">Stop FTP</Item>
+          <Item Action="FTPStart">Start FTP</Item>
+          <Item Action="FTPReset">Reset FTP</Item>
+          <Item Action="NETReset">Restart Network</Item>
+        </List>
+        <List Text="Open/Close Disc Tray" Sort="Off" Batch="True">
+          <Item Action="TrayOpen">Open Disc Tray</Item>
+          <Item Action="TrayClose">Close Disc Tray</Item>
+        </List>
+        <List Text="Format Menu" Sort="Off" Auto="On" Password="Xbox">
+          <Item Action="Format" Arg1="X">Format X Drive</Item>
+          <Item Action="Format" Arg1="Y">Format Y Drive</Item>
+          <Item Action="Format" Arg1="Z">Format Z Drive</Item>
+          <List Text="Format F Drive" Sort="Off" Batch="True">
+            <Item Action="AskUser" Arg1="Format" Arg2="If the F partition is larger than 256GB do not use this option, as it will lead to data corruption. You must use XBPartitioner 1.3 (under Applications) for partitions larger than 256GB. Continue?"></Item>
+            <Item Action="AskUser" Arg1="Format">Are you sure you want to format Drive F?</Item>
+            <Item Action="MessageBox" Arg1="Format">Press OK to proceed with the format operation.</Item>
+            <Item Action="Format" Arg1="F">Format F Drive</Item>
+          </List>
+          <List Text="Format G Drive" Sort="Off" Batch="True">
+            <Item Action="AskUser" Arg1="Format" Arg2="If the G partition is larger than 256GB do not use this option, as it will lead to data corruption. You must use XBPartitioner 1.3 (under Applications) for partitions larger than 256GB. Continue?"></Item>
+            <Item Action="AskUser" Arg1="Format">Are you sure you want to format Drive G?</Item>
+            <Item Action="MessageBox" Arg1="Format">Press OK to proceed with the format operation.</Item>
+            <Item Action="Format" Arg1="G">Format G Drive</Item>
+          </List>
+          <List Text="Format E Drive" Sort="Off" Batch="True">
+            <Item Action="AskUser" Arg1="Format" Arg2="If your Xbox is softmodded, when you format the E partition it will erase your hacked dash. You will still be able to boot a rescue disc. Do not proceed if you are unsure. Continue?"></Item>
+            <Item Action="AskUser" Arg1="Format">Are you sure you want to format Drive E?</Item>
+            <Item Action="MessageBox" Arg1="Format">Press OK to proceed with the format operation.</Item>
+            <Item Action="Format" Arg1="E">Format E Drive</Item>
+          </List>
+        </List>
+      </List>
+      <Item Action="FileManager">File Explorer</Item>
+      <List Text="NDURE Tools" Sort="Off" Batch="True" Passcode="AYBX">
+        <Item Action="MessageBox" Arg1="Instructions">This loads NDURE tools for a Kingroach NDURE 3.1 softmod, and Krayzie Extras for a Krayzie 1.1.1 softmod. Both will allow you to manage your softmod, but must be used with care.</Item>
+        <Item Action="AskUser" Arg1="WARNING" Arg2="The HeXEN Toolset provide a simpler set of quick fixes, so may be easier for novice users. Continue?"></Item>
+        <Item Action="E:\Shortcuts\NDTS\default.xbe">NDURE toolset</Item>
+      </List>
+      <List Text="HeXEn Tools" Sort="Off" Batch="True" Passcode="AYBX">
+        <Item Action="MessageBox" Arg1="Instructions">This provides access to tools for managing and repairing common softmod problems.</Item>
+        <Item Action="AskUser" Arg1="WARNING" Arg2="For more complex problems, use the Hexen disc used to build this Xbox. Continue?"></Item>
+        <Item Action="rename" Arg1="E:\HeXEN Tools\default.xbe" Arg2="E:\HeXEN Tools\default.tmp">HeXEn tools not installed, or this Xbox is Flashed / chipped.</Item>
+        <Item Action="rename" Arg1="E:\HeXEN Tools\default.tmp" Arg2="E:\HeXEN Tools\default.xbe"></Item>
+        <Item Action="copy" Arg1="E:\UnleashX\unleashx.xbe" Arg2="E:\HeXEn Tools\unleashx.xbe"></Item>
+        <Item Action="copy" Arg1="E:\HeXEn Tools\UXConfigs\Hexen Tools config.xml" Arg2="E:\HeXEn Tools\config.xml"></Item>
+        <Item Action="E:\HeXEN Tools\default.xbe">HeXEn Toolset</Item>
+      </List>
+      <List Text="Switch Dashboards" Sort="Off" Batch="True">
+        <Item Action="AskUser" Arg1="Instructions" Arg2="This allows you to switch dashboards. Continue?"></Item>
+        <Item Action="rename" Arg1="E:\HeXEN Tools\default.xbe" Arg2="E:\HeXEN Tools\default.tmp">HeXEn Tools not installed.</Item>
+        <Item Action="rename" Arg1="E:\HeXEN Tools\default.tmp" Arg2="E:\HeXEN Tools\default.xbe"></Item>
+        <Item Action="copy" Arg1="E:\Dash\UnleashX\unleashx.xbe" Arg2="E:\HeXEn Tools\unleashx.xbe"></Item>
+        <Item Action="copy" Arg1="E:\HeXEn Tools\UXConfigs\Dash Switch config.xml" Arg2="E:\HeXEn Tools\config.xml"></Item>
+        <Item Action="E:\HeXEN Tools\default.xbe">Dashboard Switch</Item>
+      </List>
+    </List>
+    <List Text="Clear Cache" Sort="Off" Batch="True">
+      <Item Action="Format" Arg1="X"></Item>
+      <Item Action="Format" Arg1="Y"></Item>
+      <Item Action="Format" Arg1="Z"></Item>
+      <Item Action="copy" Arg1="E:\Dash\UnleashX\unleashx.xbe" Arg2="E:\CACHE\Default.xbe"></Item>
+      <Item Action="delete" Arg1="E:\CACHE"></Item>
+      <Item Action="copy" Arg1="E:\Dash\UnleashX\unleashx.xbe" Arg2="E:\CACHEGSRV\Default.xbe"></Item>
+      <Item Action="delete" Arg1="E:\CACHEGSRV"></Item>
+    </List>
+    <List Text="Clear Recent List" Sort="Off" Batch="True">
+      <Item Action="Copy" Arg1="config.xml" Arg2="E:\UDATA\9e115330\0064122817A8\recent.dat"></Item>
+      <Item Action="Delete" Arg="E:\UDATA\9e115330\0064122817A8\recent.dat">Error deleting recent.dat</Item>
+    </List>
+    <Item Action="SetClock">Set Clock</Item>
+    <Item Action="Restart">Reboot</Item>
+    <Item Action="Shutdown">Shutdown</Item>
+  </Menu>
+</UnleashX>

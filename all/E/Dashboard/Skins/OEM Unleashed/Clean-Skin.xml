@@ -1,0 +1,83 @@
+<Skin name="OEM Unleashed">
+	<Information>
+		<Author>Frontesque & Rapitharian</Author>
+		<Copyright>Copyright 2024</Copyright>
+		<Version>1.1</Version>
+	</Information>
+	<Main Globe="true" Orb="true">
+		<*InfoFont>Crystal_Clear_14.xpr</InfoFont>
+		<*BackGround>Fog.png</BackGround>
+		<Orb>Orb.png</Orb>
+		<Cellwall>Cell.png</Cellwall>
+		<Icon>Orb.png</Icon>
+		<Image Left="425" Top="375" Width="101" Height="34" Source="Select.png"></Image>
+		<Image Left="262" Top="65" Width="77" Height="258" Source="Orbs.png"></Image>
+		<Image Left="442" Top="358" Width="277" Height="151" Source="Cord.png"></Image>
+
+		<Menu Smooth="false" ShowIcon="false" Rotate="false" Opacity="2" ShowArrows="false">
+			<font>Crystal_Clear_14.xpr</font>
+			<itempos left="347" top="108" width="246"></itempos>
+			<itempos left="367" top="169" width="246"></itempos>
+			<itempos left="367" top="230" width="246"></itempos>
+			<itempos left="347" top="292" width="246"></itempos>
+		</Menu>
+
+		<Image Left="300" Top="71" Width="301" Height="70" Source="MenuWindow.png"></Image>
+		<Image Left="320" Top="131" Width="301" Height="70" Source="MenuWindow.png"></Image>
+		<Image Left="320" Top="192" Width="301" Height="70" Source="MenuWindow.png"></Image>
+		<Image Left="300" Top="254" Width="301" Height="70" Source="MenuWindow.png"></Image>
+
+		<*Text Left="15" Top="370" Align="left" Color="0xFF7fce31" Source="CPUTemp"></Text>
+		<*Text Left="15" Top="390" Align="left" Color="0xFF7fce31" Source="MBTemp"></Text>
+		<*Text Left="15" Top="410" Align="left" Color="0xFF7fce31" Source="E_FreeMB"></Text>
+		<*Text Left="15" Top="430" Align="left" Color="0xFF7fce31" Source="Free Mem: $FreeMemory$"></Text>
+		<*Text Left="15" Top="450" Align="left" Color="0xFF7fce31" Source="IP"></Text>
+
+		<*Text Left="465" Top="430" Align="left" Color="0xFF7fce31" Source="Date: $Date$"></Text>
+		<*Text Left="465" Top="450" Align="left" Color="0xFF7fce31" Source="Time: $Time$"></Text>
+
+	</Main>
+
+	<ColorScheme Name="Default">
+		<AMBIENT_FOGCOLOR>0x0A2703</AMBIENT_FOGCOLOR>
+		<AMBIENT_SKYCOLOR>0xFF000000</AMBIENT_SKYCOLOR>
+		<AMBIENT_CELLCOLOR>0xFFFFFFFF</AMBIENT_CELLCOLOR>
+
+		<CAPTION_TEXTCOLOR>0xFFFFFFFF</CAPTION_TEXTCOLOR>
+		<CAPTION_BACKCOLOR>0xFF000000</CAPTION_BACKCOLOR>
+		<DIALOG_BORDERCOLOR>0xFFFFFFFF</DIALOG_BORDERCOLOR>
+		<DIALOG_BACKCOLOR>0xFF06870D</DIALOG_BACKCOLOR>
+		<DIALOG_INNER_BORDERCOLOR>0xFFFFFFFF</DIALOG_INNER_BORDERCOLOR>
+		<DIALOG_INNER_BACKCOLOR>0xFF06870D</DIALOG_INNER_BACKCOLOR>
+		<DIALOG_TEXTCOLOR>0xFFFFFFFF</DIALOG_TEXTCOLOR>
+		<DIALOG_DISABLEDTEXT>0xFFC0C0C0</DIALOG_DISABLEDTEXT>
+
+		<OPTION_TEXTCOLOR>0xFFFFFFFF</OPTION_TEXTCOLOR>
+		<OPTION_ACTIVETEXTCOLOR>0xFF072700</OPTION_ACTIVETEXTCOLOR>
+		<OPTION_ACTIVEBACKCOLOR>0xFF8EA700</OPTION_ACTIVEBACKCOLOR>
+
+		<BUTTON_BORDERCOLOR>0xFF008000</BUTTON_BORDERCOLOR>
+		<BUTTON_TEXTCOLOR>0xFF77AB99</BUTTON_TEXTCOLOR>
+		<BUTTON_BACKCOLOR>0xCD93AF00</BUTTON_BACKCOLOR>
+		<BUTTON_ACTIVETEXTCOLOR>0xFFFFFFFF</BUTTON_ACTIVETEXTCOLOR>
+		<BUTTON_ACTIVEBACKCOLOR>0xE1072700</BUTTON_ACTIVEBACKCOLOR>	
+		
+		<KB_KEYBG_HIGHLIGHT>0xCC00C000</KB_KEYBG_HIGHLIGHT>
+		<KB_KEYBG_DISABLED>0xffc0c0c0</KB_KEYBG_DISABLED>
+
+		<KB_KEY_PRESSED>0xff808080</KB_KEY_PRESSED>
+		<KB_KEY_NORMAL>0xff000000</KB_KEY_NORMAL>
+		<KB_KEY_DISABLED>0xff808080</KB_KEY_DISABLED>
+		<KB_KEY_ACTIVEBORDER>0xffFF0000</KB_KEY_ACTIVEBORDER>
+		<KB_KEY_TEXTCOLOR>0xff000000</KB_KEY_TEXTCOLOR>
+		<KB_KEY_TEXTBACKCOLOR>0xffFFFFFF</KB_KEY_TEXTBACKCOLOR>
+		<KB_KEY_TEXTBORDERCOLOR>0xffFF0000</KB_KEY_TEXTBORDERCOLOR>
+		
+		<MENU_TEXTCOLOR>0xFF7fCE31</MENU_TEXTCOLOR>
+		<MENU_ACTIVETEXTCOLOR>0xFF262C00</MENU_ACTIVETEXTCOLOR>
+		<*MENU_BORDERCOLOR>0xFF8c9305</MENU_BORDERCOLOR>
+		<*MENU_BACKCOLOR>0xFF8c9305</MENU_BACKCOLOR>
+		<MENU_ACTIVEBACKCOLOR>0xFF889D00</MENU_ACTIVEBACKCOLOR>
+		<*MENU_ACTIVEBORDERCOLOR>0xFF889D00</MENU_ACTIVEBORDERCOLOR>
+	</ColorScheme>
+</Skin>
