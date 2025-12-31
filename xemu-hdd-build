@@ -1,0 +1,234 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: xemu-hdd-build [options]
+
+Build per-profile Xbox HDD images from a directory layout:
+  (directory containing this script)
+    all/
+      C/ E/ F/ X/ Y/ Z/
+    host/
+      C/ E/ ...
+    player/
+      C/ E/ ...
+
+Options:
+  --src PATH        Source root containing the hdds layout (default: directory containing this script).
+  --dst PATH        Output directory for qcow2 images (default: parent of this script).
+  --work-dir PATH   Working directory for raw images (default: same as --dst).
+  --size SIZE       Raw image size (default: 8G).
+  --format FORMAT   FATX format (default: f-takes-all).
+  --profile NAME    Build only one profile (e.g. host).
+  --overwrite       Replace existing qcow2 files.
+  -h, --help        Show this help.
+USAGE
+}
+
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+
+hdd_src="$script_dir"
+dst_root="$(cd "$script_dir/.." && pwd)"
+work_dir=""
+size="8G"
+format="f-takes-all"
+profile_filter=""
+overwrite=0
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --src)
+      [ "$#" -ge 2 ] || { echo "missing value for --src" >&2; exit 1; }
+      hdd_src="$2"
+      shift 2
+      ;;
+    --dst)
+      [ "$#" -ge 2 ] || { echo "missing value for --dst" >&2; exit 1; }
+      dst_root="$2"
+      shift 2
+      ;;
+    --work-dir)
+      [ "$#" -ge 2 ] || { echo "missing value for --work-dir" >&2; exit 1; }
+      work_dir="$2"
+      shift 2
+      ;;
+    --size)
+      [ "$#" -ge 2 ] || { echo "missing value for --size" >&2; exit 1; }
+      size="$2"
+      shift 2
+      ;;
+    --format)
+      [ "$#" -ge 2 ] || { echo "missing value for --format" >&2; exit 1; }
+      format="$2"
+      shift 2
+      ;;
+    --profile)
+      [ "$#" -ge 2 ] || { echo "missing value for --profile" >&2; exit 1; }
+      profile_filter="$2"
+      shift 2
+      ;;
+    --overwrite)
+      overwrite=1
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "unknown option: $1" >&2
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+if [ -z "$work_dir" ]; then
+  work_dir="$dst_root"
+fi
+
+if [ -z "$hdd_src" ] || [ ! -d "$hdd_src" ]; then
+  echo "HDD source directory not found: $hdd_src" >&2
+  exit 1
+fi
+
+for bin in fatxfs qemu-img fusermount mountpoint; do
+  if ! command -v "$bin" >/dev/null 2>&1; then
+    echo "missing required tool: $bin" >&2
+    exit 1
+  fi
+done
+
+hdd_src="${hdd_src%/}"
+all_dir="$hdd_src/all"
+
+mkdir -p "$dst_root" "$work_dir"
+
+normalize_drive() {
+  name="$1"
+  name="${name%%:*}"
+  name="${name%\\}"
+  name="$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]')"
+  case "$name" in
+    c|e|f|x|y|z) printf '%s' "$name"; return 0 ;;
+  esac
+  return 1
+}
+
+collect_drives() {
+  root="$1"
+  [ -d "$root" ] || return 0
+  for dir in "$root"/*; do
+    [ -d "$dir" ] || continue
+    drive="$(normalize_drive "$(basename "$dir")")" || continue
+    printf '%s\n' "$drive"
+  done
+}
+
+copy_from_root() {
+  root="$1"
+  drive="$2"
+  mnt="$3"
+  [ -d "$root" ] || return 0
+  for dir in "$root"/*; do
+    [ -d "$dir" ] || continue
+    drive_name="$(normalize_drive "$(basename "$dir")")" || continue
+    [ "$drive_name" = "$drive" ] || continue
+    cp -R --no-preserve=mode,ownership,timestamps "$dir/." "$mnt/"
+  done
+}
+
+wait_for_mount() {
+  mnt="$1"
+  pid="$2"
+  i=0
+  while [ "$i" -lt 50 ]; do
+    if mountpoint -q "$mnt"; then
+      return 0
+    fi
+    if ! kill -0 "$pid" 2>/dev/null; then
+      return 1
+    fi
+    sleep 0.1
+    i=$((i + 1))
+  done
+  return 1
+}
+
+with_mount() {
+  raw="$1"
+  drive="$2"
+  shift 2
+  (
+    set -euo pipefail
+    mnt="$(mktemp -d "$work_dir/fatxfs-mnt.XXXXXX")"
+    fatxfs "$raw" "$mnt" --drive="$drive" -f &
+    pid=$!
+    cleanup() {
+      fusermount -u "$mnt" >/dev/null 2>&1 || true
+      wait "$pid" 2>/dev/null || true
+      rmdir "$mnt" 2>/dev/null || true
+    }
+    trap cleanup EXIT
+    wait_for_mount "$mnt" "$pid"
+    "$@" "$mnt"
+  )
+}
+
+copy_drive_pair() {
+  drive="$1"
+  profile_dir="$2"
+  mnt="$3"
+  copy_from_root "$all_dir" "$drive" "$mnt"
+  copy_from_root "$profile_dir" "$drive" "$mnt"
+}
+
+build_profile() {
+  profile="$1"
+  profile_dir="$2"
+  dst="$dst_root/$profile.qcow2"
+  if [ -f "$dst" ] && [ "$overwrite" -ne 1 ]; then
+    echo "skip $profile (exists): $dst"
+    return 0
+  fi
+
+  if [ -f "$dst" ] && [ "$overwrite" -eq 1 ]; then
+    rm -f "$dst"
+  fi
+
+  raw="$work_dir/$profile.raw"
+  rm -f "$raw"
+  qemu-img create -f raw "$raw" "$size"
+
+  format_dir="$(mktemp -d "$work_dir/fatxfs-format.XXXXXX")"
+  fatxfs "$raw" "$format_dir" --format="$format" --destroy-all-existing-data
+  rmdir "$format_dir" 2>/dev/null || true
+
+  drives="$( { collect_drives "$all_dir"; collect_drives "$profile_dir"; } | sort -u || true)"
+  for drive in $drives; do
+    with_mount "$raw" "$drive" copy_drive_pair "$drive" "$profile_dir"
+  done
+
+  qemu-img convert -f raw -O qcow2 "$raw" "$dst"
+  chmod 0664 "$dst" || true
+  rm -f "$raw"
+  echo "built $dst"
+}
+
+profiles_found=0
+for profile_dir in "$hdd_src"/*; do
+  [ -d "$profile_dir" ] || continue
+  profile="$(basename "$profile_dir")"
+  [ "$profile" = "all" ] && continue
+  if [ -n "$profile_filter" ] && [ "$profile_filter" != "$profile" ]; then
+    continue
+  fi
+  profiles_found=1
+  build_profile "$profile" "$profile_dir"
+done
+
+if [ "$profiles_found" -eq 0 ]; then
+  echo "no profiles found under $hdd_src" >&2
+  exit 1
+fi
